@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: account
+    name: tss-data
   # 数据源配置
   datasource:
     url: jdbc:mysql://dev.tss.com:3306/njit_data?useUnicode=true&characterEncoding=utf8

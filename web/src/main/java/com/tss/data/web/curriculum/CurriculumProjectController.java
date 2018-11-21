@@ -4,6 +4,7 @@ import com.tss.data.interfaces.curriculum.CurriculumProjectInterface;
 import com.tss.data.interfaces.curriculum.vo.TeacherCourseCurriculumProjectRespVO;
 import com.tss.data.web.course.CourseController;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import net.bytebuddy.asm.Advice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,8 @@ public class CurriculumProjectController {
     
     @Autowired
     private CurriculumProjectInterface curriculumProjectInterface;
-    
+
+    @ApiOperation(value = "获取教师课程分配和实验项目列表", notes = "获取教师课程分配和实验项目列表")
     @RequestMapping(value = "/getCourseCurriculumProjectList/{teacherId}", method = RequestMethod.GET)
     public TeacherCourseCurriculumProjectRespVO getTeacherCourseCurriculumProjectList(@PathVariable Long teacherId) {
         return curriculumProjectInterface.getTeacherCourseCurriculumProjectList(teacherId);
