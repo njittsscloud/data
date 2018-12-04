@@ -7,17 +7,15 @@
 package com.tss.data.web.department;
 
 import com.github.pagehelper.PageInfo;
-import com.netflix.discovery.converters.Auto;
 import com.tss.basic.site.argumentresolver.JsonParam;
 import com.tss.basic.site.exception.BusinessException;
 import com.tss.basic.site.exception.ErrorCode;
 import com.tss.data.interfaces.department.DepartmentInterface;
 import com.tss.data.interfaces.department.request.EditdepartmentInfoReq;
-import com.tss.data.interfaces.department.response.DepartmentListResp;
 import com.tss.data.interfaces.department.request.QueryDepartmentListReq;
+import com.tss.data.interfaces.department.response.DepartmentListResp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.bouncycastle.cert.ocsp.Req;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,13 +33,13 @@ public class DepartmentController {
     @Autowired
     DepartmentInterface departmentInterface;
     
-    @ApiOperation(value = "查询部门列表信息",notes = "查询部门列表信息")
+    @ApiOperation(value = "查询院系列表信息",notes = "查询院系列表信息")
     @RequestMapping(value = "/queryDepartmentList",method = RequestMethod.POST)
     PageInfo<DepartmentListResp> querydepartmentList(@JsonParam QueryDepartmentListReq req){
         return  departmentInterface.queryDepartmentList(req);
     }
     
-    @ApiOperation(value="編輯学生信息",notes = "編輯学生信息")
+    @ApiOperation(value="編輯院系信息",notes = "編輯学生信息")
     @RequestMapping(value = "/editDepartmentInfo",method = RequestMethod.POST)
     void editDepartmentInfo(@JsonParam EditdepartmentInfoReq req){
         departmentInterface.editDepartment(req);
