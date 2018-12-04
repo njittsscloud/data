@@ -1,18 +1,28 @@
 package com.tss.data.services.classes.dao;
 
 
-import com.tss.data.services.classes.po.ClassesInfo;
+import com.tss.data.services.classes.po.ClassInfo;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
+import java.util.List;
+
+@Mapper
 public interface ClassInfoDao {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(ClassesInfo record);
+    int insert(ClassInfo record);
 
-    int insertSelective(ClassesInfo record);
+    int insertSelective(ClassInfo record);
 
-    ClassesInfo selectByPrimaryKey(Integer id);
+    ClassInfo selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(ClassesInfo record);
+    int updateByPrimaryKeySelective(ClassInfo record);
 
-    int updateByPrimaryKey(ClassesInfo record);
+    int updateByPrimaryKey(ClassInfo record);
+
+    List<ClassInfo> selectByPage();
+    
+    void batchDelete(@Param("updateTime")Date updateTime,@Param("list") List<Long> ids);
 }

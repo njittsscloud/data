@@ -1,38 +1,34 @@
 package com.tss.data.interfaces.department.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+@ApiModel("院系信息列表")
 public class DepartmentListResp {
+
+    @ApiModelProperty("id")
     private Integer id;
 
-    /**
-     *学院编号
-     */
+    @ApiModelProperty("学院编号")
     private String deptNo;
 
-    /**
-     *学院名称
-     */
+    @ApiModelProperty("学院名称")
     private String deptName;
 
-    /**
-     *学院描述
-     */
+    @ApiModelProperty("学院描述")
     private String description;
 
-    /**
-     *学院状态 0:启用  1:禁用
-     */
+    @ApiModelProperty("学院状态 0:启用  1:禁用")
     private Integer state;
 
-    /**
-     *创建时间
-     */
+    @ApiModelProperty("创建时间")
+    @JSONField(format = "yyyy-")
     private Date createTime;
 
-    /**
-     *更新时间
-     */
+    @ApiModelProperty("更新时间")
     private Date updateTime;
 
     public Integer getId() {

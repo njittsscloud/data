@@ -2,54 +2,58 @@ package com.tss.data.services.classes.po;
 
 import java.util.Date;
 
-public class ClassesInfo {
-    private Integer id;
+public class ClassInfo implements Cloneable {
+    
+    /**
+     * 班级id
+     */
+    private Long id;
 
     /**
-     *班级编号
+     * 班级编号
      */
     private String classNo;
 
     /**
-     *班级名称
+     * 班级名称
      */
     private String className;
 
     /**
-     *班级描述
+     * 班级描述
      */
     private String description;
 
     /**
-     *状态 0:启用 1:禁用
-     */
-    private Integer state;
-
-    /**
-     *所属院系id
+     * 所属院系id
      */
     private Integer deptId;
 
     /**
-     *院系名称
+     * 院系名称
      */
     private String deptName;
 
     /**
-     *创建时间
+     * 创建时间
      */
     private Date createTime;
 
     /**
-     *更新时间
+     * 更新时间
      */
     private Date updateTime;
 
-    public Integer getId() {
+    /**
+     * 删除标志  0:未删除 1:删除
+     */
+    private Integer delFlag;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -75,14 +79,6 @@ public class ClassesInfo {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
     }
 
     public Integer getDeptId() {
@@ -115,5 +111,13 @@ public class ClassesInfo {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
     }
 }

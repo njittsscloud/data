@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8085
 #  context-path: /data
 
 spring:
@@ -19,7 +19,7 @@ mybatis:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://local.tss.org:8090/eureka/
+      defaultZone: http://dev.tss.com:8090/eureka/
   instance:
     metadata-map: 
       management:

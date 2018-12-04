@@ -1,0 +1,18 @@
+-- java注释转Swagger注解
+
+匹配正则表达式
+/\*+\s*\*\s*(.*)\s*\*/
+
+替换内容
+@ApiModelProperty("$1")
+
+
+-- swagger注解转java注释
+
+匹配正则表达式
+(@ApiModelProperty\(")(.*)("\))
+
+替换内容
+/**
+     * $2
+     */
