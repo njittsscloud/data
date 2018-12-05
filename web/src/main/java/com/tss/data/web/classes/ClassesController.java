@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author Tong Liu
  */
-@Api(value = "班级", description = "班级管理")
+@Api(value = "班级管理", tags = "ClassController", description = "班级管理")
 @RestController
 @RequestMapping("/classes")
 public class ClassesController {
