@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tss.basic.common.util.ModelMapperUtil;
 import com.tss.data.interfaces.course.CourseInterface;
+import com.tss.data.interfaces.course.request.CourseInfoDeleteReq;
 import com.tss.data.interfaces.course.request.CourseInfoEditReq;
 import com.tss.data.interfaces.course.request.CourseListQueryReq;
 import com.tss.data.interfaces.course.response.CourseListResp;
@@ -51,5 +52,10 @@ public class CourseService implements CourseInterface {
 			course.setUpdateTime(creaTime);
 			courseDao.updateByPrimaryKeySelective(course);
 		}
+	}
+
+	@Override
+	public void deleteCourse(CourseInfoDeleteReq req) {
+		courseDao.deleteByBatch(new Date(), req.getIds());
 	}
 }
