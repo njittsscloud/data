@@ -30,8 +30,8 @@ public class CourseService implements CourseInterface {
 
 	@Override
 	public PageInfo<CourseListResp> queryCourseList(CourseListQueryReq req) {
-		PageHelper.startPage(req.getPageNumber(), req.getPageSize());
 		List<Course> couseList = courseDao.selectByPage();
+		PageHelper.startPage(req.getPageNumber(), req.getPageSize());
 		List<CourseListResp> courseListRespList = new ArrayList<>();
 
 		if (CollectionUtils.isNotEmpty(couseList)) {
@@ -50,6 +50,9 @@ public class CourseService implements CourseInterface {
 			Date creaTime = new Date();
 			course.setCreateTime(creaTime);
 			course.setUpdateTime(creaTime);
+			courseDao.insertSelective(course);
+		} else {
+			course.setUpdateTime(new Date());
 			courseDao.updateByPrimaryKeySelective(course);
 		}
 	}

@@ -3,8 +3,12 @@ package com.tss.data.web.course;
 import com.github.pagehelper.PageInfo;
 import com.tss.basic.site.argumentresolver.JsonParam;
 import com.tss.data.interfaces.course.CourseInterface;
+import com.tss.data.interfaces.course.request.CourseInfoDeleteReq;
+import com.tss.data.interfaces.course.request.CourseInfoEditReq;
 import com.tss.data.interfaces.course.request.CourseListQueryReq;
 import com.tss.data.interfaces.course.response.CourseListResp;
+import com.tss.data.services.course.CourseService;
+import com.tss.data.services.course.po.Course;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -31,5 +35,17 @@ public class CourseController {
     @PostMapping(value = "/queryCourseList")
     PageInfo<CourseListResp> queryCourseList(@JsonParam CourseListQueryReq req) {
         return courseInterface.queryCourseList(req);
+    }
+
+    @ApiOperation(value = "编辑课程信息", notes = "编辑课程信息")
+    @PostMapping("/editCourse")
+    void editCourseInfo(@JsonParam CourseInfoEditReq req) {
+        courseInterface.editCourse(req);
+    }
+
+    @ApiOperation(value = "删除课程信息", notes = "删除课程信息")
+    @PostMapping("/deleteCourseBatch")
+    void deleteCourseInfo(@JsonParam CourseInfoDeleteReq req) {
+        courseInterface.deleteCourse(req);
     }
 }

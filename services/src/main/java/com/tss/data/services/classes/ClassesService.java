@@ -36,8 +36,8 @@ public class ClassesService implements ClassesInterface {
 
     @Override
     public PageInfo<ClassListResp> queryClassList(ClassListQueryReq req) {
-        PageHelper.startPage(req.getPageNumber(), req.getPageSize());
         List<ClassInfo> classInfos = classInfoDao.selectByPage();
+        PageHelper.startPage(req.getPageNumber(), req.getPageSize());
         List<ClassListResp> list = new ArrayList<>();
 
         if (CollectionUtils.isNotEmpty(classInfos)) {
